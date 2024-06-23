@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    text-align: center;
+}
+
+canvas {
+    margin: 20px;
+    border: 1px solid black;
+}
+
+#controls, #triangle-count {
+    margin: 10px;
+}

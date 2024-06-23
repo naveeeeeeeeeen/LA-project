@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Detection Game</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="static/script.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <div id="game-container">
+            <h1>Triangle Detection Game</h1>
+            <div id="controls">
+                <label for="vertices">Number of vertices:</label>
+                <input type="number" id="vertices" min="10" max="20" value="12">
+                <button onclick="generateGraph()">Generate Graph</button>
+                <br><br>
+                <label for="triangle">Does the graph contain a triangle?</label>
+                <select id="triangle">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <button onclick="checkTriangle()">Submit</button>
+            </div>
+            <div id="triangle-count" style="display: none;">
+                <label for="count">How many triangles are there?</label>
+                <input type="number" id="count" min="0">
+                <button onclick="checkTriangleCount()">Submit</button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+</html>

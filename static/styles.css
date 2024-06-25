@@ -1,15 +1,28 @@
-body {
+.main-container {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    flex-wrap: wrap;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    width: 100%;
+    background-color: white;
+    padding: 0%;
+    grid-template-columns: 70% auto;
+}
+
+#app {
+}
+
+body {
+    padding: 0%;
+    margin: 0px;
 }
 
 #game-container {
     text-align: center;
+    position: absolute;
+    top: 0px;
 }
 
 canvas {
@@ -19,4 +32,11 @@ canvas {
 
 #controls, #triangle-count {
     margin: 10px;
+}
+
+
+.controller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

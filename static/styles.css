@@ -2,7 +2,6 @@
     font-family: Arial, sans-serif;
     display: grid;
     flex-wrap: wrap;
-    align-items: center;
     height: 100vh;
     margin: 0;
     width: 100%;
@@ -41,5 +40,5 @@ canvas {
 .controller{
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }

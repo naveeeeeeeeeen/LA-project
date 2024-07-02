@@ -227,7 +227,7 @@ async function drawTriangles(){
 
                     count++;
                     head = document.querySelector("#triangle-count");
-                    head.innerText = `${count} Triangles.`;
+                    head.innerText = `${count} ${(count > 1)? 'Triangles' : 'Triangle'}.`;
                     fill(c);
                     // noStroke();
                     triangle(nodes[i].x, nodes[i].y, 
@@ -253,7 +253,8 @@ async function drawTriangles(){
         let target = nodes[link.target];
         line(source.x, source.y, target.x, target.y);
     });
-    console.log(count);
+    head = document.querySelector("#triangle-count");
+    head.innerText = `${count} ${(count > 1)? 'Triangles' : 'Triangle'}.`;
 }
 
 

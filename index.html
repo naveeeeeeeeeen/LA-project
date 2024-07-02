@@ -23,31 +23,11 @@
           </a>
         </div>
     </nav>
+    <div class="alert alert-warning incorrect" role="alert" style="visibility: hidden;">
+      Not Quite
+    </div>    
     <div class="main-container">
         <div id="app">
-            <div id="game-container">
-                <!-- <h1>Triangle Detection Game</h1>
-                <div id="controls">
-                    <label for="vertices">Number of vertices:</label>
-                    <input type="number" id="vertices" min="10" max="20" value="12">
-                    <button onclick="generateGraph()">Generate Graph</button>
-                    <br><br>
-                    <label for="triangle">Does the graph contain a triangle?</label>
-                    <select id="triangle">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                    <button onclick="checkTriangle()">Submit</button>
-                </div>
-                <div id="triangle-count" style="display: none;">
-                    <label for="count">How many triangles are there?</label>
-                    <input type="number" id="count" min="0">
-                    <button onclick="checkTriangleCount()">Submit</button>
-                    <button onclick="drawTriangles()">Color</button>
-                </div>
-                <div id="result"></div>
-                 -->
-            </div>
         </div>
         <div class="controller">
             <div class="card" style="width: 18rem;">
@@ -68,7 +48,7 @@
                   <div class="mb-3">
                     <label for="basic-url" class="form-label">Triangles</label>
                     <div class="input-group">
-                      <span class="input-group-text" id="basic-addon3">Nodes</span>
+                      <span class="input-group-text" id="basic-addon3">Triangles</span>
                       <input type="text" class="form-control" id="count" 
                         aria-describedby="basic-addon3 basic-addon4">
                     </div>
@@ -83,6 +63,10 @@
                 </div>
               </div>
         </div>
+    </div>
+    <div id="confetti">
+      <canvas data-generated="true" style="width: 100% !important; height: 100% !important; position: fixed !important; z-index: 100 !important; top: 0px !important; left: 0px !important; pointer-events: none; border: 0px;" aria-hidden="true" width="1742" height="1440">
+      </canvas>
     </div>
 </body>
 </html>

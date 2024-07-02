@@ -74,18 +74,17 @@ const COLORS = [
   
 
 function setup() {
-    let canvas = createCanvas(windowWidth * .7, windowHeight * .9);
+    let canvas = createCanvas(windowWidth * .5, windowHeight * .9);
     canvas.parent('app');
     canvas.style("border", "0px");
     // background("lavender");
     background(255)
     canvas.style("margin", 0);
+    head = document.createElement("h1");
+    head.className = "text-wrap";
+    head.id = "triangle-count";
+    document.querySelector("#app").appendChild(head);
 
-    // startButton = createButton("Start");
-    // startButton.class("btn btn-primary");
-    // startButton.style("height", "100px");
-    // startButton.style("width", "100px")
-    // startButton.position(windowWidth / 2, windowHeight / 2);
 }
 
 function generateGraph() {
@@ -133,6 +132,9 @@ function drawGraph() {
         ellipse(node.x, node.y, 12.5, 12.5);
     });
     stroke(0);
+    head = document.querySelector("#triangle-count");
+    head.innerText = null;
+    document.querySelector(".incorrect").style.visibility = "hidden";
 }
 
 function detectTriangle() {
@@ -174,6 +176,7 @@ function checkTriangle() {
 }
 
 function checkTriangleCount() {
+    document.querySelector(".incorrect").style.visibility = "hidden";
     let count = parseInt(document.getElementById('count').value);
     let adjMatrix = Array(nodes.length).fill().map(() => Array(nodes.length).fill(0));
     links.forEach(link => {
@@ -186,7 +189,7 @@ function checkTriangleCount() {
         function randomInRange(min, max) {
             return Math.random() * (max - min) + min;
           }
-        for(i=0; i<5; i++)
+        for(i=0; i<50; i++)
               confetti({
                 angle: randomInRange(55, 125),
                 spread: randomInRange(50, 70),
@@ -194,12 +197,8 @@ function checkTriangleCount() {
                 origin: { y: 0.6 },
               });
 
-        setTimeout( ()=>{
-            document.getElementById("confetti").querySelector("canvas").style.border = "0px" 
-        }, 1000);
-
     } else {
-        resultDiv.textContent = `Incorrect. There are actually ${actualCount} triangles.`;
+        document.querySelector(".incorrect").style.visibility = "visible";
     }
 }
 
@@ -216,11 +215,7 @@ async function drawTriangles(){
                 if (i != j && j != k && k != i && adjMatrix[i][j] && adjMatrix[j][k] && adjMatrix[k][i]) {
                     let c = color(...COLORS[Math.floor(Math.random() * COLORS.length)]);
 
-                    // Draw the square.
-                    // if (cords){
-                    //     fill(color(255, 255, 255));
-                    //     triangle(...cords)
-                    // }
+
                     cords = [nodes[i].x, nodes[i].y, 
                             nodes[j].x, nodes[j].y, 
                             nodes[k].x, nodes[k].y
@@ -231,6 +226,8 @@ async function drawTriangles(){
                         continue
 
                     count++;
+                    head = document.querySelector("#triangle-count");
+                    head.innerText = `${count} Triangles.`;
                     fill(c);
                     // noStroke();
                     triangle(nodes[i].x, nodes[i].y, 
